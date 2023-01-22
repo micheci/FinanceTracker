@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
 <h1>Signed in</h1>
 
 
@@ -6,17 +16,18 @@
 <!-- Add javascript to  -->
 <h2>Add a Event</h2>
 <form action="/event/createEvent" enctype="multipart/form-data" method="POST">
-
-    <label for="type"></label>
+<!-- 
+    <label for="type">Type</label>
     <select name="type" id="type">
         <option value="school">School</option>
         <option value="food">Food</option>
         <option value="investments">Investments</option>
         <option value="clothes">Clothes</option>
-    </select>
+    </select> -->
+   
 
-    <label for="amount" ></label>
-    <input type="number" id="amount" name="amount">
+    <label for="amount" >Amount</label>
+    <input type="text" id="amount" name="amount" placeholder="Amount Spend">
 
     <!-- <label for="subs"></label>
     <input type="text" id="subs" name="subs"> -->
@@ -24,3 +35,10 @@
     <button type="submit" value="Upload">Submit</button>
 
 </form>
+
+<div class="navbar">
+    
+</div>
+
+</body>
+</html>

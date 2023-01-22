@@ -1,17 +1,13 @@
 const mongoose = require("mongoose");
 
 const EventSchema = new mongoose.Schema({
-  type: {
-    type: String,
-    
-  },
- 
-
+  // type: {
+  //   type: String,
+  //   enum:['School','Investment'],
+  // },
   amount: {
-    type: Number,
-   
-  },
-  
+    type: String,  
+  },  
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
