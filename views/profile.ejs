@@ -5,40 +5,103 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 <body>
-    
+    <div class="container">
 <h1>Signed in</h1>
 
 
 <!-- Total -->
-<h2>Total:</h2>
+
 <!-- Add javascript to  -->
-<h2>Add a Event</h2>
-<form action="/event/createEvent" enctype="multipart/form-data" method="POST">
-<!-- 
-    <label for="type">Type</label>
-    <select name="type" id="type">
-        <option value="school">School</option>
-        <option value="food">Food</option>
-        <option value="investments">Investments</option>
-        <option value="clothes">Clothes</option>
-    </select> -->
-   
+<div class="row">
+    <div class="col-lg-6">
+    <h2>Spending</h2>
+    <form action="/event/createEvent"  method="POST">
 
-    <label for="amount" >Amount</label>
-    <input type="text" id="amount" name="amount" placeholder="Amount Spend">
-
-    <!-- <label for="subs"></label>
-    <input type="text" id="subs" name="subs"> -->
-
-    <button type="submit" value="Upload">Submit</button>
-
-</form>
-
-<div class="navbar">
+        <label for="type">Type</label>
+        <select name="type" id="type">
+            <option value="School">School</option>
+            <option value="Food">Food</option>
+            <option value="Investments">Investments</option>
+            <option value="Clothes">Clothes</option>
+        </select>
     
+
+        <label for="amount" >Amount</label>
+        <input type="text" id="amount" name="amount" placeholder="Amount Spend">
+
+        <!-- <label for="subs"></label>
+        <input type="text" id="subs" name="subs"> -->
+
+        <button type="submit" value="Upload">Submit</button>
+
+    </form>
 </div>
 
+<div class="col-lg-6">
+    <h2>Total</h2>
+    <form action="/event/createSub"  method="POST">
+
+        <label for="sub">Subscription</label>
+        <input type="text" id="sub" name="sub" placeholder="Name of Subscription">
+    
+
+        <label for="amount" >Amount</label>
+        <input type="text" id="amount" name="amount" placeholder="Amount Spend">
+
+        <!-- <label for="subs"></label>
+        <input type="text" id="subs" name="subs"> -->
+
+        <button type="submit" value="Upload">Submit</button>
+
+    </form>
+</div>
+
+
+
+</div>
+<div class="row">
+<div class="col-lg-6">
+    <h2>Subscriptions</h2>
+    <form action="/event/createSub"  method="POST">
+
+        <label for="name">Subscription</label>
+        <input type="text" id="name" name="name" placeholder="Name of Subscription">
+    
+
+        <label for="amountSub" >Amount</label>
+        <input type="number" id="amountSub" name="amountSub" placeholder="Amount a month">
+
+        <button type="submit" value="Upload">Submit</button>
+
+    </form>
+</div>
+
+<div class="col-lg-6">
+<% for(var i=0; i<events.length; i++) {%>
+    
+     <p><%= events[i].amount%></p>
+      
+    
+  <% } %>
+</div>
+<div class="col-lg-6">
+    <% for(var i=0; i<sub.length; i++) {%>
+        <p><%= sub[i].name%></p><span><%= sub[i].amount%></span>
+         
+          
+        
+      <% } %>
+    </div>
+
+
+</div>
+
+
+
+</div>
 </body>
 </html>

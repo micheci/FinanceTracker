@@ -7,6 +7,8 @@ const postsController = require("../controllers/posts");
 const eventController=require("../controllers/event")
 
 router.post("/createEvent", eventController.createEvent);
+router.post("/createSub", eventController.createSub);
+
 
 
 module.exports = router;

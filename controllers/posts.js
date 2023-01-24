@@ -1,11 +1,16 @@
 
 const Post = require("../models/Post");
+const Event=require("../models/Event")
+const Sub=require("../models/Sub")
 
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const posts = await Post.find({ user: req.user.id }).sort({createdAt:'desc'});
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      const events=await Event.find({ user: req.user.id }).sort({createdAt:'desc'});
+      const sub=await Sub.find({ user: req.user.id }).sort({createdAt:'desc'});
+
+      // const posts = await Post.find({ user: req.user.id }).sort({createdAt:'desc'});
+      res.render("profile.ejs", { sub:sub,events: events, user: req.user });
     } catch (err) {
       console.log(err);
     }

@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-const EventSchema = new mongoose.Schema({
-  type: {
+const SubSchema = new mongoose.Schema({
+  name: {
     type: String,
-   
+   required:true,
   },
   amount: {
     type: String,  
@@ -18,4 +18,4 @@ const EventSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Event", EventSchema);
+module.exports = mongoose.model("Sub", SubSchema);

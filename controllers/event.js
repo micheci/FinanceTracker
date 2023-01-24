@@ -1,6 +1,6 @@
 
 const Post = require("../models/Post");
-
+const Sub=require("../models/Sub")
 const Event=require("../models/Event")
 
 module.exports = {
@@ -32,8 +32,22 @@ module.exports = {
   createEvent: async (req, res) => {
     try {
       await Event.create({
-       
+        type:req.body.type,
         amount:req.body.amount,
+        
+        user: req.user.id,
+      });
+      console.log("Event has been added!");
+      res.redirect("/profile");
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  createSub: async (req, res) => {
+    try {
+      await Sub.create({
+        name:req.body.name,
+        amount:req.body.amountSub,
         
         user: req.user.id,
       });
