@@ -76,26 +76,22 @@
         <input type="number" id="amountSub" name="amountSub" placeholder="Amount a month">
 
         <button type="submit" value="Upload">Submit</button>
-
+        <button onclick="addSubs('red');">Get Total</button>
     </form>
 </div>
 
-<div class="col-lg-6">
-<% for(var i=0; i<events.length; i++) {%>
-    
-     <p><%= events[i].amount%></p>
-      
-    
-  <% } %>
-</div>
-<div class="col-lg-6">
+
+<div class="col-lg-3">
     <% for(var i=0; i<sub.length; i++) {%>
-        <p><%= sub[i].name%></p><span><%= sub[i].amount%></span>
-         
-          
+       
+        <p><%= sub[i].name%></p><span id="totalSubs"><%= sub[i].amount%></span>
         
       <% } %>
-    </div>
+       
+</div>
+<div class="col-lg-3">
+    <p id="total"></p>
+</div>
 
 
 </div>
@@ -104,4 +100,5 @@
 
 </div>
 </body>
+<script type="text/javascript" src="/js/main.js"></script>
 </html>
