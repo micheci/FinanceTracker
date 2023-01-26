@@ -6,7 +6,6 @@ function addSubs(){
     let sum=0;
      for (const element of total) {
         sum+=Number(element.innerHTML);
-        //  element.style.color = nums;
        } 
 document.getElementById("total").innerHTML+=sum;
 } 
