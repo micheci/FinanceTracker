@@ -8,6 +8,8 @@ const eventController=require("../controllers/event")
 
 router.post("/createEvent", eventController.createEvent);
 router.post("/createSub", eventController.createSub);
+router.post("/findSub", eventController.findSub);
+
 
 
 

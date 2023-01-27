@@ -1,0 +1,12 @@
+.box{
+    border: solid 1px black;
+}
+.flexList{
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 0;
+    justify-content: space-around;
+}

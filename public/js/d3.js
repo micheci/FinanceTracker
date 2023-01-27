@@ -1,9 +1,9 @@
 // Work on getting type of spending and amount spending to fill out the graph
 //use document.getElementBYtag to get info
+let SpendingValues=document.getElementsByTagName
 
-
-var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-var yValues = [55, 49, 44, 24, 15];
+var xValues = ["Savings", "School", "Investments", "Clothes"];
+var yValues = [55, 49, 44, 24];
 var barColors = [
   "#b91d47",
   "#00aba9",

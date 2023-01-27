@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// Add the  variables for the new events added EXAMPLE:Personal
 const EventSchema = new mongoose.Schema({
   type: {
     type: String,
