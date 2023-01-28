@@ -9,6 +9,19 @@ const eventController=require("../controllers/event")
 router.post("/createEvent", eventController.createEvent);
 router.post("/createSub", eventController.createSub);
 router.post("/findSub", eventController.findSub);
+router.post("/personal/delete", eventController.deletePersonal);
+
+router.post("/food/delete", eventController.deletePersonal);
+router.post("/investments/delete", eventController.deletePersonal);
+router.post("/savings/delete", eventController.deletePersonal);
+router.post("/housing/delete", eventController.deletePersonal);
+router.post("/school/delete", eventController.deletePersonal);
+router.post("/utilities/delete", eventController.deletePersonal);
+router.post("/transportation/delete", eventController.deletePersonal);
+router.post("/recreation/delete", eventController.deletePersonal);
+router.post("/medical/delete", eventController.deletePersonal);
+router.post("/miscellaneous/delete", eventController.deletePersonal);
+
 
 
 

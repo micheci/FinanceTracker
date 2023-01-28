@@ -1,5 +1,6 @@
 .box{
     border: solid 1px black;
+    margin: .4rem;
 }
 .flexList{
     list-style: none;
@@ -7,6 +8,22 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    padding-left: 0;
+    padding: 2rem;
     justify-content: space-around;
+
+}
+li{
+    text-align: center;
+    list-style: none;
+}
+.spendingFlex{
+    display: flex;
+}
+.flexBox{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.fa{
+  border: none;
 }

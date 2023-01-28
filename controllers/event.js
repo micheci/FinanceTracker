@@ -57,8 +57,25 @@ module.exports = {
       console.log(err);
     }
   },
+  deletePersonal: async (req, res) => {
+    try {
+      console.log('delete')
+      // Find post by id
+      await Event.deleteMany({"type":"Personal"})
+      
+      // await Post.remove({ _id: req.params.id });
+      // console.log("Deleted Post");
+      // res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+    }res.redirect("/profile");
+  },
+  // Gets all the documents with same type and same user
   findSub:async(req,res)=>{
     try {  
+      const events=await Event.find({ user: req.user.id }).sort({createdAt:'desc'});
+      const sub=await Sub.find({ user: req.user.id }).sort({createdAt:'desc'});
+
        const savings = await Event.find({type: "Savings",user: req.user.id}).sort({ createdAt: "desc" }).lean();
        const personal = await Event.find({type: "Personal",user: req.user.id}).sort({ createdAt: "desc" }).lean();
        const housing = await Event.find({type: "Housing",user: req.user.id}).sort({ createdAt: "desc" }).lean();
@@ -71,10 +88,10 @@ module.exports = {
        const school = await Event.find({type: "School",user: req.user.id}).sort({ createdAt: "desc" }).lean();
        const utilities = await Event.find({type: "Utilities",user: req.user.id}).sort({ createdAt: "desc" }).lean();
 
-       console.log(savings)
-       console.log(personal)
-       res.redirect("/profile");
-      //console.log(savings)const posts = await Post.find({ user: req.user.id }).sort({createdAt:'desc'});
+       res.render("profile.ejs", { savings:savings,personal:personal,housing:housing,recreation:recreation,
+        food:food,medical:medical,investments:investments,miscellaneous:miscellaneous,transportation:transportation
+         ,school:school,utilities:utilities,user: req.user,events:events,sub:sub });
+       
            } catch (err) {
             console.log(err);
           }

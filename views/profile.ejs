@@ -9,92 +9,221 @@
     <link rel="stylesheet" href="/css/profile.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://kit.fontawesome.com/5152f77347.js" crossorigin="anonymous"></script>
 
 </head>
 <body onload="addSubs()">
     <div class="container">
     <h1>Signed in</h1>
-    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-
-<!-- Budget-->
-<div class="row">
-    <div class="col-lg-6">
-        <h2>Budget</h2>
-    </div>
-
-</div>
-
+    
 
 <!--Spending row -->
-<div class="row">
-    <div class="col-lg-6">
-    <h2>Spending</h2>
-    <form action="/event/createEvent"  method="POST">
+<div class="row ">
+    <div class="col-lg-6 ">
+        <h2>Spending</h2>
+        <form action="/event/createEvent"  method="POST">
 
-        <label for="type">Type</label>
-        <select name="type" id="type">
-            <option value="School">School</option>
-            <option value="Food">Food</option>
-            <option value="Investments">Investments</option>
-            <option value="Housing">Housing</option>
-            <option value="Utilities">Utilities</option>
-            <option value="Transportation">Transportation</option>
-            <option value="Savings">Savings</option>
-            <option value="Recreation">Recreation</option>
-            <option value="Medical">Medical</option>
-            <option value="Personal">Personal</option>
-            <option value="Miscellaneous">Miscellaneous</option>
-        </select>
-    
-        <label for="amount" >Amount</label>
-        <input type="text" id="amount" name="amount" placeholder="Amount Spend">
+            <label for="type">Type</label>
+            <select name="type" id="type">
+                <option value="School">School</option>
+                <option value="Food">Food</option>
+                <option value="Investments">Investments</option>
+                <option value="Housing">Housing</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Savings">Savings</option>
+                <option value="Recreation">Recreation</option>
+                <option value="Medical">Medical</option>
+                <option value="Personal">Personal</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+            </select>
+        
+            <label for="amount" >Amount</label>
+            <input type="text" id="amount" name="amount" placeholder="Amount Spend">
 
-        <button type="submit" value="Upload">Submit</button>
-    </form>
-</div>
-
-<div class="col-lg-6">
-    <div class="col-lg-3">
-        <% for(var i=0; i<events.length; i++) {%>
-           <div class="box">
-                <p><%= events[i].type%></p><p id="totalEvents"><%= events[i].amount%></p>
-            </div>
-          <% } %>    
+            <button type="submit" value="Upload">Submit</button>
+        </form>
     </div>
-    
-    <!-- Example FINDSUB -->
-    <form action="/event/findSub" method="POST">
-        <button type="submit" value="Upload">Submit</button>
-    </form>
+        <canvas class="col-lg-6" id="myChart" style="width:100%;max-width:600px"></canvas>
 
-    <!--  -->
+</div>
+ 
+
+    <!-- Spending -->
     <div class="flexList">
         <ul >
+            <div class="box">
             <li>Personal</li>
-            <p>0</p>
+                <% let personalTotal=0 %>
+                    <% for(var i=0; i<personal.length; i++) {%>
+                        <% personalTotal+=Number(personal[i].amount)%>
+                   
+                    <% } %>
+                    <div class="flexBox">
+                <p id="personal"><%= personalTotal %></p>
+                <form action="/event/personal/delete" method="POST">
+                    <button class="fa fa-eraser"></button>
+                </form>
+                
+               </div>
+            </div>
+
+              <div class="box">
             <li>Food</li>
-            <p>0</p>
+                <% let foodTotal=0 %>
+                    <% for(var i=0; i<food.length; i++) {%>
+                        <% foodTotal+=Number(food[i].amount)%>
+                    
+                <% } %>
+                <div class="flexBox">
+                    <p id="food"><%= foodTotal %></p>
+                    <form action="/event/food/delete" method="POST">
+                        <button class="fa fa-eraser"></button>
+                    </form>
+                    
+                   </div>
+            </div>
+
+            <div class="box">
             <li>Investments</li>
-            <p>0</p>
+            <% let investmentsTotal=0 %>
+                    <% for(var i=0; i<investments.length; i++) {%>
+                        <% investmentsTotal+=Number(investments[i].amount)%>
+                    
+                    <% } %>
+                <div class="flexBox">
+                    <p id="investments"><%= investmentsTotal %></p>
+                    <form action="/event/investments/delete" method="POST">
+                        <button class="fa fa-eraser"></button>
+                    </form>
+                    
+                   </div>
+            </div>
+
+            <div class="box">
+            <li>Savings</li>
+                <% let savingsTotal=0 %>
+                <% for(var i=0; i<savings.length; i++) {%>
+                    <% savingsTotal+=Number(savings[i].amount)%>
+               
+                <% } %>               
+                <div class="flexBox">
+                    <p id="savings"><%= savingsTotal %></p>
+                    <form action="/event/savings/delete" method="POST">
+                        <button class="fa fa-eraser"></button>
+                    </form>                    
+                </div>
+            </div>
         </ul>
         <ul >
+            <div class="box">
             <li>Housing</li>
-            <p>0</p>
+                <% let housingTotal=0 %>
+                    <% for(var i=0; i<housing.length; i++) {%>
+                        <% housingTotal+=Number(housing[i].amount)%>
+                   
+                    <% } %>
+               
+                <div class="flexBox">
+                    <p id="housing"><%= housingTotal %></p>
+                    <form action="/event/housing/delete" method="POST">
+                        <button class="fa fa-eraser"></button>
+                    </form>                    
+                </div>
+            </div>
+            <div class="box">
+            <li>School</li>
+            <% let schoolTotal=0 %>
+                <% for(var i=0; i<school.length; i++) {%>
+                    <% schoolTotal+=Number(school[i].amount)%>
+               
+               <% } %>              
+               <div class="flexBox">
+                <p id="school"><%= schoolTotal %></p> 
+                <form action="/event/school/delete" method="POST">
+                    <button class="fa fa-eraser"></button>
+                </form>                    
+            </div>
+            </div>
+            <div class="box">
             <li>Utilities</li>
-            <p>0</p>
+            <% let utilitiesTotal=0 %>
+                    <% for(var i=0; i<utilities.length; i++) {%>
+                        <% utilitiesTotal+=Number(utilities[i].amount)%>
+                   
+                    <% } %>
+                <div class="flexBox">
+                    <p id="utilities"><%= utilitiesTotal %></p>
+                    <form action="/event/utilities/delete" method="POST">
+                        <button class="fa fa-eraser"></button>
+                    </form>                    
+                </div>
+            </div>
+            <div class="box">
             <li>Transportation</li>
-            <p>0</p>
+            <% let transportationTotal=0 %>
+            <% for(var i=0; i<transportation.length; i++) {%>
+                <% transportationTotal+=Number(transportation[i].amount)%>
+          
+            <% } %>
+            
+            <div class="flexBox">
+                <p id="transportation"><%= transportationTotal %></p>
+                <form action="/event/transportation/delete" method="POST">
+                    <button class="fa fa-eraser"></button>
+                </form>                    
+            </div>
+    </div>
         </ul>
         <ul >
+            <div class="box">
             <li>Recreation</li>
-            <p>0</p>
+                <% let recreationTotal=0 %>
+                <% for(var i=0; i<recreation.length; i++) {%>
+                    <% recreationTotal+=Number(recreation[i].amount)%>
+               
+                <% } %>
+           
+            <div class="flexBox">
+                <p id="recreation"><%= recreationTotal %></p>
+                <form action="/event/recreation/delete" method="POST">
+                    <button class="fa fa-eraser"></button>
+                </form>                    
+            </div>
+        </div>
+        <div class="box">
             <li>Medical</li>
-            <p>0</p>
+            <% let medicalTotal=0 %>
+            <% for(var i=0; medical.length; i++) {%>
+                <% medicalTotal+=Number(medical[i].amount)%>
+           
+            <% } %>
+           
+            <div class="flexBox">
+                <p id="medical"><%= medicalTotal %></p>
+                <form action="/event/medical/delete" method="POST">
+                    <button class="fa fa-eraser"></button>
+                </form>                    
+            </div>
+    </div>
+    <div class="box">
             <li>Miscellaneous</li>
-            <p>0</p>
+            <% let miscellaneousTotal=0 %>
+            <% for(var i=0; miscellaneous.length; i++) {%>
+                <% miscellaneousTotal+=Number(miscellaneous[i].amount)%>
+            
+            <% } %>
+            
+            <div class="flexBox">
+                <p id="miscellaneous"><%= miscellaneousTotal %></p>
+                <form action="/event/miscellaneous/delete" method="POST">
+                    <button class="fa fa-eraser"></button>
+                </form>                    
+            </div>
+    </div>
         </ul>
     </div>
-</div>
+
 </div>
 
 
