@@ -11,16 +11,16 @@ router.post("/createSub", eventController.createSub);
 router.post("/findSub", eventController.findSub);
 router.post("/personal/delete", eventController.deletePersonal);
 
-router.post("/food/delete", eventController.deletePersonal);
+router.post("/food/delete", eventController.deleteFood);
 router.post("/investments/delete", eventController.deletePersonal);
-router.post("/savings/delete", eventController.deletePersonal);
-router.post("/housing/delete", eventController.deletePersonal);
-router.post("/school/delete", eventController.deletePersonal);
-router.post("/utilities/delete", eventController.deletePersonal);
-router.post("/transportation/delete", eventController.deletePersonal);
-router.post("/recreation/delete", eventController.deletePersonal);
-router.post("/medical/delete", eventController.deletePersonal);
-router.post("/miscellaneous/delete", eventController.deletePersonal);
+router.post("/savings/delete", eventController.deleteSavings);
+router.post("/housing/delete", eventController.deleteHousing);
+router.post("/school/delete", eventController.deleteSchool);
+router.post("/utilities/delete", eventController.deleteUtilities);
+router.post("/transportation/delete", eventController.deleteTransportation);
+router.post("/recreation/delete", eventController.deleteRecreation);
+router.post("/medical/delete", eventController.deleteMedical);
+router.post("/miscellaneous/delete", eventController.deleteMiscellaneous);
 
 
 

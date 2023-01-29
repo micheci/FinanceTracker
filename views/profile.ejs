@@ -244,16 +244,18 @@
 </div>
 
 
-<div class="col-lg-3">
+<div class="col-lg-3 scrollView">
     <% for(var i=0; i<sub.length; i++) {%>
        
         <p><%= sub[i].name%></p><span id="totalSubs"><%= sub[i].amount%></span>
+
         
       <% } %>    
 </div>
 
 <div class="col-lg-3">
-    <p id="total"></p>
+    <p id="total">$</p>
+    
 </div>
 
 

@@ -43,25 +43,159 @@ module.exports = {
       console.log(err);
     }
   },
-  createSub: async (req, res) => {
-    try {
-      await Sub.create({
-        name:req.body.name,
-        amount:req.body.amountSub,
+  // createSub: async (req, res) => {
+  //   
+    
+  //   try {
+  //     await Sub.create({
+  //       name:req.body.name,
+  //       amount:req.body.amountSub,
         
-        user: req.user.id,
-      });
-      console.log("Event has been added!");
-      res.redirect("/profile");
-    } catch (err) {
-      console.log(err);
-    }
+  //       user: req.user.id,
+  //     });
+  //     console.log("Event has been added!");
+  //     res.redirect("/profile");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
+  
+  // Finds query and updates if exsit and creates new one if
+  createSub: async (req, res) => {
+  
+    let query={'name':req.body.name}
+    let update={
+      name:req.body.name,
+      amount:req.body.amountSub,           
+      user: req.user.id,
+    };
+    let options = {upsert: true, new: true, setDefaultsOnInsert: true};
+    
+    await Sub.findOneAndUpdate(query, update, options);
+    res.redirect("/profile");
   },
   deletePersonal: async (req, res) => {
     try {
       console.log('delete')
       // Find post by id
       await Event.deleteMany({"type":"Personal"})
+      
+      // await Post.remove({ _id: req.params.id });
+      // console.log("Deleted Post");
+      // res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+    }res.redirect("/profile");
+  },
+  deleteFood: async (req, res) => {
+    try {
+      console.log('delete')
+      // Find post by id
+      await Event.deleteMany({"type":"Food"})
+      
+      // await Post.remove({ _id: req.params.id });
+      // console.log("Deleted Post");
+      // res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+    }res.redirect("/profile");
+  },
+  deleteSavings: async (req, res) => {
+    try {
+      console.log('delete')
+      // Find post by id
+      await Event.deleteMany({"type":"Savings"})
+      
+      // await Post.remove({ _id: req.params.id });
+      // console.log("Deleted Post");
+      // res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+    }res.redirect("/profile");
+  },
+  deleteHousing: async (req, res) => {
+    try {
+      console.log('delete')
+      // Find post by id
+      await Event.deleteMany({"type":"Housing"})
+      
+      // await Post.remove({ _id: req.params.id });
+      // console.log("Deleted Post");
+      // res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+    }res.redirect("/profile");
+  },
+  deleteSchool: async (req, res) => {
+    try {
+      console.log('delete')
+      // Find post by id
+      await Event.deleteMany({"type":"School"})
+      
+      // await Post.remove({ _id: req.params.id });
+      // console.log("Deleted Post");
+      // res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+    }res.redirect("/profile");
+  },
+  deleteUtilities: async (req, res) => {
+    try {
+      console.log('delete')
+      // Find post by id
+      await Event.deleteMany({"type":"Utilities"})
+      
+      // await Post.remove({ _id: req.params.id });
+      // console.log("Deleted Post");
+      // res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+    }res.redirect("/profile");
+  },
+  deleteTransportation: async (req, res) => {
+    try {
+      console.log('delete')
+      // Find post by id
+      await Event.deleteMany({"type":"Transportation"})
+      
+      // await Post.remove({ _id: req.params.id });
+      // console.log("Deleted Post");
+      // res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+    }res.redirect("/profile");
+  },
+  deleteRecreation: async (req, res) => {
+    try {
+      console.log('delete')
+      // Find post by id
+      await Event.deleteMany({"type":"Recreation"})
+      
+      // await Post.remove({ _id: req.params.id });
+      // console.log("Deleted Post");
+      // res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+    }res.redirect("/profile");
+  },
+  deleteMedical: async (req, res) => {
+    try {
+      console.log('delete')
+      // Find post by id
+      await Event.deleteMany({"type":"Medical"})
+      
+      // await Post.remove({ _id: req.params.id });
+      // console.log("Deleted Post");
+      // res.redirect("/profile");
+    } catch (err) {
+      res.redirect("/profile");
+    }res.redirect("/profile");
+  },
+  deleteMiscellaneous: async (req, res) => {
+    try {
+      console.log('delete')
+      // Find post by id
+      await Event.deleteMany({"type":"Miscellaneous"})
       
       // await Post.remove({ _id: req.params.id });
       // console.log("Deleted Post");

@@ -27,3 +27,17 @@ li{
 .fa{
   border: none;
 }
+form input[type="text"] {
+    text-transform: lowercase;
+}
+.scrollView{
+    height: 15rem;
+    overflow: auto;
+}
+#total{
+    display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 15rem;
+            font-size: 8rem;
+}
