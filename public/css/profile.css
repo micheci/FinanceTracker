@@ -41,3 +41,34 @@ form input[type="text"] {
             height: 15rem;
             font-size: 8rem;
 }
+.incomeSubmit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    margin-left: 1rem;
+}
+.income{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+   
+    margin-left: 1rem;
+}
+.incomeText{
+    color:white;
+   position: relative;
+
+   
+
+}
+.background{
+    background-color: #000033;
+ 
+}
+.backgroundRight{
+    background-color: #000033;
+    color: white;
+ 
+}

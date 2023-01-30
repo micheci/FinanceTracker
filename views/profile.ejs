@@ -18,25 +18,36 @@
     
 
     <!-- Income row -->
-    <h2>Income</h2>
+    
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
+            <div class="background">
+            <h2 class="incomeText">Income</h2>
+            <div class="incomeSubmit">
+                
         <form action="/event/income" method="POST">
         <label for="income"></label>
         <input type="number" id="income" name="income" placeholder="Montly income">
         <button type="submit" value="Upload">Submit</button>
+            </div>
         </div>
-        
-        <div class="col-lg-2">  
-            <h1  id="incomeMoney"><%= income[0].income %></h1>
+        </div>
+        <div class="col-lg-2  backgroundRight">  
+            <h1>Budget</h1>
+            <div class="income">
+            <h1>$</h1>
+            <h1 id="incomeMoney"><%= income[0].income %></h1>
+        </div>
         </div>
 
-        <div class="col-lg-2">  
+        <div class="col-lg-2 income">  
+            <h1>$</h1>
             <h1 id="spendingTotal" class="spendingTotal"></h1>  
         </div>
 
-        <div class="col-lg-2">  
-            <h1  id="spendingLeft" class=""></h1>  
+        <div class="col-lg-2 income">
+            <h1>$</h1>  
+            <h1 id="spendingLeft" class=""></h1>  
         </div>
 
     </form>
