@@ -12,10 +12,37 @@
     <script src="https://kit.fontawesome.com/5152f77347.js" crossorigin="anonymous"></script>
 
 </head>
-<body onload="addSubs()">
+<body onload="addSubs();getResult();getMoneyLeft()" >
     <div class="container">
-    <h1>Signed in</h1>
+    <h1>Hi <%= user.userName %></h1>
     
+
+    <!-- Income row -->
+    <h2>Income</h2>
+    <div class="row">
+        <div class="col-lg-6">
+        <form action="/event/income" method="POST">
+        <label for="income"></label>
+        <input type="number" id="income" name="income" placeholder="Montly income">
+        <button type="submit" value="Upload">Submit</button>
+        </div>
+        
+        <div class="col-lg-2">  
+            <h1  id="incomeMoney"><%= income[0].income %></h1>
+        </div>
+
+        <div class="col-lg-2">  
+            <h1 id="spendingTotal" class="spendingTotal"></h1>  
+        </div>
+
+        <div class="col-lg-2">  
+            <h1  id="spendingLeft" class=""></h1>  
+        </div>
+
+    </form>
+    </div>
+
+
 
 <!--Spending row -->
 <div class="row ">
@@ -60,7 +87,7 @@
                    
                     <% } %>
                     <div class="flexBox">
-                <p id="personal"><%= personalTotal %></p>
+                <p id="personal" class="wholeSpending"><%= personalTotal %></p>
                 <form action="/event/personal/delete" method="POST">
                     <button class="fa fa-eraser"></button>
                 </form>
@@ -76,7 +103,7 @@
                     
                 <% } %>
                 <div class="flexBox">
-                    <p id="food"><%= foodTotal %></p>
+                    <p id="food" class="wholeSpending"><%= foodTotal %></p>
                     <form action="/event/food/delete" method="POST">
                         <button class="fa fa-eraser"></button>
                     </form>
@@ -92,7 +119,7 @@
                     
                     <% } %>
                 <div class="flexBox">
-                    <p id="investments"><%= investmentsTotal %></p>
+                    <p id="investments" class="wholeSpending"><%= investmentsTotal %></p>
                     <form action="/event/investments/delete" method="POST">
                         <button class="fa fa-eraser"></button>
                     </form>
@@ -108,7 +135,7 @@
                
                 <% } %>               
                 <div class="flexBox">
-                    <p id="savings"><%= savingsTotal %></p>
+                    <p id="savings" class="wholeSpending"><%= savingsTotal %></p>
                     <form action="/event/savings/delete" method="POST">
                         <button class="fa fa-eraser"></button>
                     </form>                    
@@ -125,7 +152,7 @@
                     <% } %>
                
                 <div class="flexBox">
-                    <p id="housing"><%= housingTotal %></p>
+                    <p id="housing" class="wholeSpending"><%= housingTotal %></p>
                     <form action="/event/housing/delete" method="POST">
                         <button class="fa fa-eraser"></button>
                     </form>                    
@@ -138,8 +165,8 @@
                     <% schoolTotal+=Number(school[i].amount)%>
                
                <% } %>              
-               <div class="flexBox">
-                <p id="school"><%= schoolTotal %></p> 
+               <div class="flexBox" >
+                <p id="school" class="wholeSpending"><%= schoolTotal %></p> 
                 <form action="/event/school/delete" method="POST">
                     <button class="fa fa-eraser"></button>
                 </form>                    
@@ -153,7 +180,7 @@
                    
                     <% } %>
                 <div class="flexBox">
-                    <p id="utilities"><%= utilitiesTotal %></p>
+                    <p id="utilities" class="wholeSpending"><%= utilitiesTotal %></p>
                     <form action="/event/utilities/delete" method="POST">
                         <button class="fa fa-eraser"></button>
                     </form>                    
@@ -168,7 +195,7 @@
             <% } %>
             
             <div class="flexBox">
-                <p id="transportation"><%= transportationTotal %></p>
+                <p id="transportation" class="wholeSpending"><%= transportationTotal %></p>
                 <form action="/event/transportation/delete" method="POST">
                     <button class="fa fa-eraser"></button>
                 </form>                    
@@ -226,7 +253,7 @@
 
 </div>
 
-
+<!-- Subs -->
 <div class="row">
 <div class="col-lg-6">
     <h2>Subscriptions</h2>
@@ -267,5 +294,8 @@
 </body>
 <script type="text/javascript" src="/js/main.js"></script>
 <script type="text/javascript" src="/js/d3.js"></script>
+<script type="text/javascript" src="/js/total.js"></script>
+<script type="text/javascript" src="/js/moneyLeft.js"></script>
+
 
 </html>

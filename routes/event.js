@@ -10,6 +10,7 @@ router.post("/createEvent", eventController.createEvent);
 router.post("/createSub", eventController.createSub);
 router.post("/findSub", eventController.findSub);
 router.post("/personal/delete", eventController.deletePersonal);
+router.post("/income", eventController.createIncome);
 
 router.post("/food/delete", eventController.deleteFood);
 router.post("/investments/delete", eventController.deletePersonal);

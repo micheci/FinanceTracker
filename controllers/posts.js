@@ -2,10 +2,13 @@
 const Post = require("../models/Post");
 const Event=require("../models/Event")
 const Sub=require("../models/Sub")
+const Income=require("../models/Income")
 
 module.exports = {
   getProfile: async (req, res) => {
     try {
+      const income=await Income.find({user:req.user.id}).sort({createdAt:'desc'});
+
       const events=await Event.find({ user: req.user.id }).sort({createdAt:'desc'});
       const sub=await Sub.find({ user: req.user.id }).sort({createdAt:'desc'});
       const savings = await Event.find({type: "Savings",user: req.user.id}).sort({ createdAt: "desc" }).lean();
@@ -20,7 +23,7 @@ module.exports = {
       const school = await Event.find({type: "School",user: req.user.id}).sort({ createdAt: "desc" }).lean();
       const utilities = await Event.find({type: "Utilities",user: req.user.id}).sort({ createdAt: "desc" }).lean();
       // const posts = await Post.find({ user: req.user.id }).sort({createdAt:'desc'});
-      res.render("profile.ejs", { savings:savings,personal:personal,housing:housing,recreation:recreation,
+      res.render("profile.ejs", { income:income,savings:savings,personal:personal,housing:housing,recreation:recreation,
         food:food,medical:medical,investments:investments,miscellaneous:miscellaneous,transportation:transportation
          ,school:school,utilities:utilities,user: req.user,events:events,sub:sub });
     } catch (err) {

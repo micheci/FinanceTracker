@@ -2,6 +2,7 @@
 const Post = require("../models/Post");
 const Sub=require("../models/Sub")
 const Event=require("../models/Event")
+const Income=require("../models/Income")
 
 module.exports = {
 //   getProfile: async (req, res) => {
@@ -86,6 +87,18 @@ module.exports = {
     } catch (err) {
       res.redirect("/profile");
     }res.redirect("/profile");
+  },
+  createIncome: async (req, res) => {
+    try {     
+      await Income.create({
+        income:req.body.income,       
+        user: req.user.id,
+      });
+      console.log("Income has been added!");
+      res.redirect("/profile");
+    } catch (err) {
+      console.log(err);
+    }
   },
   deleteFood: async (req, res) => {
     try {
