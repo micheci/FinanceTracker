@@ -56,7 +56,7 @@ new Chart("myChart", {
     labels: xValues,
     datasets: [{
       backgroundColor: barColors,
-      data: yValues
+      data: yValues,
     }]
   },
   options: {

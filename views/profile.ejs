@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/profile.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/profile.css" type="text/css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://kit.fontawesome.com/5152f77347.js" crossorigin="anonymous"></script>
 
@@ -19,7 +19,7 @@
 
     <!-- Income row -->
     
-    <div class="row">
+    <div class="row g-0">
         <div class="col-lg-5">
             <div class="background">
             <h2 class="incomeText">Income</h2>
@@ -33,21 +33,27 @@
         </div>
         </div>
         <div class="col-lg-2  backgroundRight">  
-            <h1>Budget</h1>
+            <h3>Budget</h3>
             <div class="income">
             <h1>$</h1>
             <h1 id="incomeMoney"><%= income[0].income %></h1>
         </div>
         </div>
 
-        <div class="col-lg-2 income">  
+        <div class="col-lg-2 backgroundRight">  
+            <h3>Spend</h3>
+            <div class="income">
             <h1>$</h1>
             <h1 id="spendingTotal" class="spendingTotal"></h1>  
         </div>
+        </div>
 
-        <div class="col-lg-2 income">
+        <div class="col-lg-2 backgroundRight">
+            <h3>Left Over</h3>
+            <div class="income">
             <h1>$</h1>  
             <h1 id="spendingLeft" class=""></h1>  
+            </div>
         </div>
 
     </form>
@@ -56,9 +62,9 @@
 
 
 <!--Spending row -->
-<div class="row ">
-    <div class="col-lg-6 ">
-        <h2>Spending</h2>
+<div class="row g-0">
+    <div class="col-lg-6 spendingBg" >
+        <h2 class="text-white">Spending</h2>
         <form action="/event/createEvent"  method="POST">
 
             <label for="type">Type</label>
@@ -82,12 +88,13 @@
             <button type="submit" value="Upload">Submit</button>
         </form>
     </div>
-        <canvas class="col-lg-6" id="myChart" style="width:100%;max-width:600px"></canvas>
+    
+        <canvas class="col-lg-6 graphBg" id="myChart" style="width:100%;max-width:600px;font: white;"></canvas>
 
 </div>
  
 
-    <!-- Spending -->
+    <!-- Spending amounts -->
     <div class="flexList">
         <ul >
             <div class="box">
@@ -262,11 +269,11 @@
         </ul>
     </div>
 
-</div>
+
 
 <!-- Subs -->
 <div class="row">
-<div class="col-lg-6">
+<div class="col-lg-5 spendingBg">
     <h2>Subscriptions</h2>
     <form action="/event/createSub"  method="POST">
 
@@ -282,7 +289,7 @@
 </div>
 
 
-<div class="col-lg-3 scrollView">
+<div class="col-lg-3 scrollView spendingBg">
     <% for(var i=0; i<sub.length; i++) {%>
        
         <p><%= sub[i].name%></p><span id="totalSubs"><%= sub[i].amount%></span>
@@ -291,7 +298,7 @@
       <% } %>    
 </div>
 
-<div class="col-lg-3">
+<div class="col-lg-3 spendingBg">
     <p id="total">$</p>
     
 </div>
@@ -299,7 +306,7 @@
 
 </div>
 
-
+</div>
 
 </div>
 </body>
