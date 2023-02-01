@@ -14,13 +14,15 @@
 </head>
 <body onload="addSubs();getResult();getMoneyLeft()" >
     <div class="container">
-    <h1>Hi <%= user.userName %></h1>
+    <h1 class="text-center text-white">Hi <%= user.userName %></h1>
+    <a href="/logout"><button class="btn btn-sm btn-outline-secondary" type="button">Log Out</button></a>
+
     
 
     <!-- Income row -->
     
-    <div class="row g-0">
-        <div class="col-lg-5">
+    <div class="row g-0 justify-content-evenly">
+        <div class="col-lg-5 shawdow ">
             <div class="background">
             <h2 class="incomeText">Income</h2>
             <div class="incomeSubmit">
@@ -32,7 +34,7 @@
             </div>
         </div>
         </div>
-        <div class="col-lg-2  backgroundRight">  
+        <div class="col-lg-2 shawdow backgroundRight">  
             <h3>Budget</h3>
             <div class="income">
             <h1>$</h1>
@@ -40,7 +42,7 @@
         </div>
         </div>
 
-        <div class="col-lg-2 backgroundRight">  
+        <div class="col-lg-2 shawdow backgroundRight">  
             <h3>Spend</h3>
             <div class="income">
             <h1>$</h1>
@@ -48,7 +50,7 @@
         </div>
         </div>
 
-        <div class="col-lg-2 backgroundRight">
+        <div class="col-lg-2 shawdow backgroundRight">
             <h3>Left Over</h3>
             <div class="income">
             <h1>$</h1>  
@@ -62,12 +64,13 @@
 
 
 <!--Spending row -->
-<div class="row g-0">
-    <div class="col-lg-6 spendingBg" >
-        <h2 class="text-white">Spending</h2>
+<div class="row g-0 justify-content-evenly">
+    
+    <div class="col-lg-6 spendingBg shawdow" >
+        <h2 class="text-white ">Spending</h2>
         <form action="/event/createEvent"  method="POST">
 
-            <label for="type">Type</label>
+            <label for="type "class="fs-3 text me-2">Type:</label>
             <select name="type" id="type">
                 <option value="School">School</option>
                 <option value="Food">Food</option>
@@ -82,20 +85,20 @@
                 <option value="Miscellaneous">Miscellaneous</option>
             </select>
         
-            <label for="amount" >Amount</label>
+            <label for="amount" class="fs-3 text me-2" >Amount:</label>
             <input type="text" id="amount" name="amount" placeholder="Amount Spend">
 
             <button type="submit" value="Upload">Submit</button>
         </form>
     </div>
     
-        <canvas class="col-lg-6 graphBg" id="myChart" style="width:100%;max-width:600px;font: white;"></canvas>
+        <canvas class="col-lg-6 graphBg shawdow" id="myChart" style="width:100%;max-width:600px;font: white;"></canvas>
 
 </div>
  
 
     <!-- Spending amounts -->
-    <div class="flexList">
+    <div class="flexList shawdow">
         <ul >
             <div class="box">
             <li>Personal</li>
@@ -272,41 +275,186 @@
 
 
 <!-- Subs -->
-<div class="row">
-<div class="col-lg-5 spendingBg">
-    <h2>Subscriptions</h2>
-    <form action="/event/createSub"  method="POST">
+<div class="row g-0 justify-content-evenly">
+    <div class="col-lg-6 subBg shawdow">
+        <h2 class="text-white">Subscriptions</h2>
+        <form action="/event/createSub"  method="POST">
 
-        <label for="name">Subscription</label>
-        <input type="text" id="name" name="name" placeholder="Name of Subscription">
-    
-
-        <label for="amountSub" >Amount</label>
-        <input type="number" id="amountSub" name="amountSub" placeholder="Amount a month">
-
-        <button type="submit" value="Upload">Submit</button>
-    </form>
-</div>
-
-
-<div class="col-lg-3 scrollView spendingBg">
-    <% for(var i=0; i<sub.length; i++) {%>
-       
-        <p><%= sub[i].name%></p><span id="totalSubs"><%= sub[i].amount%></span>
-
+            <label for="name" class="fs-3 text me-2">Subscription</label>
+            <input type="text" id="name" name="name" placeholder="Name of Subscription">
         
-      <% } %>    
+
+            <label for="amountSub" class="fs-3 text me-2" >Amount</label>
+            <input type="number" id="amountSub" name="amountSub" placeholder="Amount a month">
+
+            <button type="submit" value="Upload">Submit</button>
+        </form>
+    </div>
+
+
+    <div class="col-lg-2 scrollView scrollBg shawdow">
+        <% for(var i=0; i<sub.length; i++) {%>
+            <div class="subScrollbox">
+            <p><%= sub[i].name%></p><span id="totalSubs"><%= sub[i].amount%></span>
+</div>
+            
+        <% } %>    
+    </div>
+
+    <div class="col-lg-3 scrollBg shawdow ">
+        <p id="total">$</p>
+        
+    </div>
+
+
 </div>
 
-<div class="col-lg-3 spendingBg">
-    <p id="total">$</p>
-    
-</div>
+<div class="container my-5">
 
-
-</div>
-
-</div>
+    <!-- Footer -->
+    <footer
+            class="text-center text-lg-start text-white"
+            style="background-color:  #121229"
+            >
+      <!-- Section: Social media -->
+      <section
+               class="d-flex justify-content-between p-4"
+               style="background-color: #6351ce"
+               >
+        <!-- Left -->
+        <div class="me-5">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Left -->
+  
+        <!-- Right -->
+        <div>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+  
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold">Company name</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p>
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
+              </p>
+            </div>
+            <!-- Grid column -->
+  
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Products</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p>
+                <a href="#!" class="text-white">MDBootstrap</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">MDWordPress</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">BrandFlow</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Bootstrap Angular</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+  
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Useful links</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p>
+                <a href="#!" class="text-white">Your Account</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Become an Affiliate</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Shipping Rates</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+  
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Contact</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+              <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+              <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+              <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+  
+      <!-- Copyright -->
+      <div
+           class="text-center p-3"
+           style="background-color: rgba(0, 0, 0, 0.2)"
+           >
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/"
+           >MDBootstrap.com</a
+          >
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  
+  </div>
+  <!-- End of .container -->
 
 </div>
 </body>

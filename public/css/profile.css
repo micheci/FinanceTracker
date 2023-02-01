@@ -1,6 +1,7 @@
 .box{
     border: solid 1px black;
     margin: .4rem;
+   
 }
 .flexList{
     list-style: none;
@@ -8,15 +9,18 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
     justify-content: space-around;
+    align-items: center;
     background-color: #121229;
     margin-top: 1rem;
+   
 
 }
 li{
     text-align: center;
     list-style: none;
+    color: white;
 }
 .spendingFlex{
     display: flex;
@@ -84,13 +88,14 @@ body{
     
 
 }
+.subScrollbox{
+    display: flex;
+    justify-content: space-around;
+}
 .row{
     margin-top: 1rem;
 }
-.no-pad{
-    margin-right: 0;
-    margin-left: 0;
-}
+
 .graphBg{
     background-color: #121229;
     margin-left: 1rem;
@@ -98,4 +103,27 @@ body{
 }
 .white{
     color: white;
+}
+.subBg{
+    background-color: #121229;
+    
+}.scrollBg{
+    background-color: #121229;
+    margin-left: 1rem;
+}
+
+Form{
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+   
+}
+p,span{
+    color: white;
+}
+
+.shawdow{box-shadow: .5rem .5rem black;
 }
