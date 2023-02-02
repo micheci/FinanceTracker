@@ -127,3 +127,25 @@ p,span{
 
 .shawdow{box-shadow: .5rem .5rem black;
 }
+.navbar{
+    background-color: #6351ce;
+}
+.navBarText{
+    color: #121229;
+    font-weight: bold;
+}
+button{
+    background-color: #6351ce ;
+    
+}
+.navbtn{
+    background-color: #121229;
+}
+.btnmargin{
+    margin-top: 1rem;
+}
+.btnIndex{
+    background-color: #121229;
+    color: white;
+    margin-right: 1rem;
+}

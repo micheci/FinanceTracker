@@ -14,8 +14,15 @@
 </head>
 <body onload="addSubs();getResult();getMoneyLeft()" >
     <div class="container">
-    <h1 class="text-center text-white">Hi <%= user.userName %></h1>
-    <a href="/logout"><button class="btn btn-sm btn-outline-secondary" type="button">Log Out</button></a>
+        <nav class="navbar navbar-light  justify-content-between">
+            <a class="navbar-brand px-3  text-white ">Financial<div class="navBarText">Tracker</div></a>
+            <h1 class="text-center text-white">Hi <%= user.userName %></h1>
+
+            <form class="form-inline">
+                <a href="/logout"><button class="btn  navbtn btn-sm btn-outline-secondary" type="button">Log Out</button></a>
+
+            </form>
+          </nav>
 
     
 
@@ -30,7 +37,7 @@
         <form action="/event/income" method="POST">
         <label for="income"></label>
         <input type="number" id="income" name="income" placeholder="Montly income">
-        <button type="submit" value="Upload">Submit</button>
+        <button  class="btnmargin" type="submit" value="Upload">Submit</button>
             </div>
         </div>
         </div>
@@ -88,7 +95,7 @@
             <label for="amount" class="fs-3 text me-2" >Amount:</label>
             <input type="text" id="amount" name="amount" placeholder="Amount Spend">
 
-            <button type="submit" value="Upload">Submit</button>
+            <button type="submit" class="btnmargin" value="Upload">Submit</button>
         </form>
     </div>
     
@@ -287,7 +294,7 @@
             <label for="amountSub" class="fs-3 text me-2" >Amount</label>
             <input type="number" id="amountSub" name="amountSub" placeholder="Amount a month">
 
-            <button type="submit" value="Upload">Submit</button>
+            <button type="submit" class="btnmargin" value="Upload">Submit</button>
         </form>
     </div>
 
@@ -323,28 +330,20 @@
                >
         <!-- Left -->
         <div class="me-5">
-          <span>Get connected with us on social networks:</span>
+          <p>Get connected with us on social networks:</p>
         </div>
         <!-- Left -->
   
         <!-- Right -->
         <div>
-          <a href="" class="text-white me-4">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="" class="text-white me-4">
+          
+          <a href="https://twitter.com/icehcim" class="text-white me-4">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="" class="text-white me-4">
-            <i class="fab fa-google"></i>
-          </a>
-          <a href="" class="text-white me-4">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="" class="text-white me-4">
+          <a href="https://www.linkedin.com/in/micheci-martinez-6736201a1/" class="text-white me-4">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="" class="text-white me-4">
+          <a href="https://github.com/micheci" class="text-white me-4">
             <i class="fab fa-github"></i>
           </a>
         </div>
