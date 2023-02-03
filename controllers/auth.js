@@ -6,6 +6,7 @@ exports.getLogin = (req, res) => {
   if (req.user) {
     return res.redirect("/profile");
   }
+  console.log('error herw')
   res.render("login", {
     title: "Login",
   });
