@@ -90,8 +90,10 @@ module.exports = {
   },
   createIncome: async (req, res) => {
     try {     
+
+      
       await Income.create({
-        income:req.body.income,       
+        income:Number(req.body.income),       
         user: req.user.id,
       });
       console.log("Income has been added!");
