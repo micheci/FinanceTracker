@@ -21,31 +21,38 @@
 
    
    <!-- Hero -->
+   <div class="d-flex justify-content-between">
+    <div class="left mr-4">
+    <h1 class="mt-5 white">Create,Save and keep up with Your hard-earned Money</h1>
+    <p>Introducing our revolutionary Financial Tracker app, the ultimate solution to effortlessly manage your finances. Seamlessly track income, expenses, and budgeting in real-time, all from your fingertips. With intuitive visualizations and easy-to-use tools, gain valuable insights into your financial health. Our app employs cutting-edge technology, ensuring your data is secure and always accessible. Say goodbye to financial stress as you embark on a journey of empowered financial management. Experience the coolness of staying in control, making informed decisions, and achieving your goals with our smart and sleek Financial Tracker app. Your financial freedom starts here.</p>
+    <form action="/login" method="POST">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Email address</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          name="email"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          name="password"
+        />
+      </div>
+      <button type="submit" class=" navbtn btn btn-primary mt-2">Sign in</button>
+  </form>
+  </div>
+    <img src="../pics/logo.jpg " class="img-fluid w-50 ml-4" alt="phoneLogo">
+  </div>
 
-<form action="/login" method="POST">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label"
-        >Email address</label
-      >
-      <input
-        type="email"
-        class="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
-        name="email"
-      />
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="exampleInputPassword1"
-        name="password"
-      />
-    </div>
-    <button type="submit" class=" navbtn btn btn-primary mt-2">Sign in</button>
-</form>
 </div>
 </body>
 </html>
