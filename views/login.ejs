@@ -3,7 +3,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+  <style>
+    @media (max-width: 576px) {
+      .custom-column {
+        flex-direction: column;
+      }
+      .bottom-image {
+      width: 100%;
+      object-fit: cover;
+      align-self: flex-end;
+    }
+    }
+    @media (max-width: 876px) {
+      .custom-column {
+        flex-direction: column;
+      }
+      .bottom-image {
+      width: 100%;
+      object-fit: cover;
+      align-self: flex-center;
+    }
+    }
+  </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +42,7 @@
     <a href="/login" class="col-3 btn btnIndex">Login</a>
     <a href="/signup" class="col-3 btn btnIndex">Signup</a>
   </nav>
-<div class="mx-4 d-flex justify-content-between">
+<div class="mx-4 custom-column d-flex justify-content-between flex-sm-column flex-md-column flex-lg-row">
   <div class="left mr-4">
   <h1 class="mt-5 white">Create,Save and keep up with Your hard-earned Money</h1>
   <p class="paragraph">Introducing our revolutionary Financial Tracker app, the ultimate solution to effortlessly manage your finances. Seamlessly track income, expenses, and budgeting in real-time, all from your fingertips. With intuitive visualizations and easy-to-use tools, gain valuable insights into your financial health. Our app employs cutting-edge technology, ensuring your data is secure and always accessible. Say goodbye to financial stress as you embark on a journey of empowered financial management. Experience the coolness of staying in control, making informed decisions, and achieving your goals with our smart and sleek Financial Tracker app. Your financial freedom starts here.</p>
@@ -50,7 +71,7 @@
     <button type="submit" class=" navbtn btn btn-primary mt-2">Log in</button>
 </form>
 </div>
-  <img src="../pics/logo.jpg " class="img-fluid w-50 ml-4" alt="phoneLogo">
+  <img src="../pics/logo.jpg " class=" bottom-image  bottom-image img-fluid w-50 ml-4 mx-auto d-block my-auto" alt="phoneLogo">
 </div>
 
 </div>
