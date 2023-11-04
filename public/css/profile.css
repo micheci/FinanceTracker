@@ -113,7 +113,6 @@ body{
 }
 
 Form{
-    height: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,8 +120,13 @@ Form{
     flex-direction: column;
    
 }
-p,span{
+p{
     color: white;
+    width:40rem;
+}
+span{
+    color: white;
+   
 }
 
 .shawdow{box-shadow: .5rem .5rem black;
@@ -130,9 +134,13 @@ p,span{
 .navbar{
     background-color: #6351ce;
 }
+.a{
+    font-size:2rem;
+}
 .navBarText{
     color: #121229;
     font-weight: bold;
+    font-size:2rem;
 }
 button{
     background-color: #6351ce ;
