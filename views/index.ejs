@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>  <style>
+  @media (max-width: 576px) {
+    .custom-column {
+      flex-direction: column;
+    }
+    .bottom-image {
+    width: 100%;
+    object-fit: cover;
+    align-self: flex-end;
+  }
+  }
+  @media (max-width: 876px) {
+    .custom-column {
+      flex-direction: column;
+    }
+    .bottom-image {
+    width: 100%;
+    object-fit: cover;
+    align-self: flex-center;
+  }
+  }
+</style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +71,7 @@
       <button type="submit" class=" navbtn btn btn-primary mt-2">Sign in</button>
   </form>
   </div>
-    <img src="../pics/logo.jpg " class="img-fluid w-50 ml-4" alt="phoneLogo">
+    <img src="../pics/logo.jpg " class=" bottom-image  bottom-image img-fluid w-50 ml-4 mx-auto d-block my-auto" alt="phoneLogo">
   </div>
 
 </div>

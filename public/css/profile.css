@@ -1,159 +1,290 @@
-.box{
-    border: solid 1px black;
-    margin: .4rem;
-   
+/* General Box Styling */
+.box {
+  border: solid 1px black;
+  margin: 0.4rem;
+  padding: 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
 }
-.flexList{
-    list-style: none;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 1rem;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #121229;
-    margin-top: 1rem;
-   
 
+/* Flex List Container */
+.flexList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #121229;
+  margin-top: 1rem;
+  box-sizing: border-box;
+  gap: 1rem;
 }
-li{
-    text-align: center;
-    list-style: none;
-    color: white;
+
+/* List Items */
+li {
+  text-align: center;
+  list-style: none;
+  color: white;
 }
-.spendingFlex{
-    display: flex;
+
+/* Spending Section */
+.spendingFlex {
+  display: flex;
 }
-.flexBox{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+
+.flexBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.fa{
+
+/* FontAwesome Styling */
+.fa {
   border: none;
 }
+
+/* Input Styling */
 form input[type="text"] {
-    text-transform: lowercase;
-}
-.scrollView{
-    height: 15rem;
-    overflow: auto;
-}
-#total{
-    display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 15rem;
-            font-size: 8rem;
-}
-.incomeSubmit{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
-}
-.income{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
-   
-}
-.incomeText{
-    color:white;
-   position: relative;
-
-   
-
-}
-.background{
-    background-color: #121229;
- 
-}
-.backgroundRight{
-    background-color: #121229;
-    color: white;
-    margin-left: 1rem;
- 
-}
-body{
-    width: auto;
-    height: auto;
-    background-color: rgb(50, 64, 87);
-    overflow:auto;
-}
-.spendingBg{
-    background-color: #121229;
-    
-
-}
-.subScrollbox{
-    display: flex;
-    justify-content: space-around;
-}
-.row{
-    margin-top: 1rem;
+  text-transform: lowercase;
 }
 
-.graphBg{
-    background-color: #121229;
-    margin-left: 1rem;
-    color:white;
-}
-.white{
-    color: white;
-}
-.subBg{
-    background-color: #121229;
-    
-}.scrollBg{
-    background-color: #121229;
-    margin-left: 1rem;
+/* Scroll View */
+.scrollView {
+  height: 15rem;
+  overflow: auto;
 }
 
-Form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+/* Total Section */
+#total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15rem;
+  font-size: clamp(2rem, 10vw, 8rem); /* Responsive font-size */
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* Income Submit Section */
+.incomeSubmit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+}
+
+/* Income Section */
+.income {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+}
+
+.incomeText {
+  color: white;
+  position: relative;
+  text-align: center;
+  font-size: clamp(1rem, 5vw, 3rem); /* Responsive font-size */
+  word-wrap: break-word;
+}
+
+/* Background Styling */
+.background {
+  background-color: #121229;
+}
+
+.backgroundRight {
+  background-color: #121229;
+  color: white;
+  margin-left: 1rem;
+}
+
+body {
+  width: auto;
+  height: auto;
+  background-color: rgb(50, 64, 87);
+  overflow: auto;
+}
+
+/* Spending Background */
+.spendingBg {
+  background-color: #121229;
+}
+
+/* Sub Scrollbox Styling */
+.subScrollbox {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Row Styling */
+.row {
+  margin-top: 1rem;
+}
+
+/* Graph Background */
+.graphBg {
+  background-color: #121229;
+  margin-left: 1rem;
+  color: white;
+}
+
+/* White Text */
+.white {
+  color: white;
+}
+
+/* Sub Background */
+.subBg {
+  background-color: #121229;
+}
+
+/* Scroll Background */
+.scrollBg {
+  background-color: #121229;
+  margin-left: 1rem;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+}
+
+/* Paragraph Styling */
+p {
+  color: white;
+  width: 40rem;
+}
+
+/* Span Styling */
+span {
+  color: white;
+}
+
+/* Shadow Effect */
+.shawdow {
+  box-shadow: 0.5rem 0.5rem black;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #6351ce;
+}
+
+.a {
+  font-size: 2rem;
+}
+
+.navBarText {
+  color: #121229;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/* Button Styling */
+button {
+  background-color: #6351ce;
+}
+
+.navbtn {
+  background-color: #121229;
+}
+
+.btnmargin {
+  margin-top: 1rem;
+}
+
+.btnIndex {
+  background-color: #121229;
+  color: white;
+  margin-right: 1rem;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 600px) {
+  /* Adjust font size */
+  .incomeText,
+  #total {
+    font-size: 1.5rem;
+  }
+
+  /* Adjust paragraph width */
+  p {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  /* Flex container adjustment */
+  .flexList {
     flex-direction: column;
-   
+    align-items: center;
+  }
+
+  .income,
+  .incomeSubmit {
+    height: auto;
+    padding: 1rem;
+  }
+
+  /* Box adjustments */
+  .box {
+    padding: 0.5rem;
+  }
 }
-p{
-    color: white;
-    width:40rem;
-}
-span{
-    color: white;
-   
+/* Ensure that the col-lg-3 container respects its size */
+.col-lg-3 {
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding in width calculation */
+  padding: 1rem; /* Add padding to ensure space */
+  display: flex;
+  justify-content: center; /* Center the total text */
+  align-items: center; /* Align the total text vertically */
+  overflow: hidden; /* Hide anything that overflows */
 }
 
-.shawdow{box-shadow: .5rem .5rem black;
+/* #total styling inside the container */
+#total {
+  background-color: #121229;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Take full height of the container */
+  font-size: clamp(2rem, 10vw, 6rem); /* Adjust font size responsively */
+  text-align: center;
+  word-wrap: break-word; /* Prevent text overflow */
+  overflow-wrap: break-word; /* Ensure text breaks properly */
+  max-width: 100%; /* Prevent the text from overflowing the container */
 }
-.navbar{
-    background-color: #6351ce;
+.cards-container {
+  background-color: #121229;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 20px; /* Space between the cards */
+  height: 100vh; /* Ensures it takes full height */
 }
-.a{
-    font-size:2rem;
+
+.card {
+  display: flex;
+  background-color: #121229;
+  justify-content: center; /* Center number horizontally */
+  align-items: center; /* Center number vertically */
+  width: 100px; /* Set width */
+  height: 100px; /* Set height */
+  border: 2px solid black; /* Card border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 24px; /* Adjust font size for the number */
+  background-color: #f0f0f0; /* Light background for the card */
 }
-.navBarText{
-    color: #121229;
-    font-weight: bold;
-    font-size:2rem;
-}
-button{
-    background-color: #6351ce ;
-    
-}
-.navbtn{
-    background-color: #121229;
-}
-.btnmargin{
-    margin-top: 1rem;
-}
-.btnIndex{
-    background-color: #121229;
-    color: white;
-    margin-right: 1rem;
+
+.card-number {
+  font-size: 24px; /* Font size for numbers */
 }

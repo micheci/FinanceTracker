@@ -47,9 +47,10 @@
             <h1>$</h1>
             <% if(income.length > 0){ %>
                 <h1 id="incomeMoney"><%= income[0].income  %></h1>
-            <% } else{ %>  
-                <h1>0</h1>
+            <% } else { %>  
+                <h1 id="incomeMoney">0</h1>
             <% } %>
+            
             
         </div>
         </div>
@@ -98,7 +99,7 @@
             </select>
         
             <label for="amount" class="fs-3 text me-2" >Amount:</label>
-            <input type="text" id="amount" name="amount" placeholder="Amount Spend">
+            <input type="number" id="amount" name="amount" placeholder="Amount Spend">
 
             <button type="submit" class="btnmargin" value="Upload">Submit</button>
         </form>
@@ -110,179 +111,166 @@
  
 
     <!-- Spending amounts -->
-    <div class="flexList shawdow">
-        <ul >
-            <div class="box">
-            <li>Personal</li>
-                <% let personalTotal=0 %>
-                    <% for(var i=0; i<personal.length; i++) {%>
-                        <% personalTotal+=Number(personal[i].amount)%>
-                   
-                    <% } %>
-                    <div class="flexBox">
-                <p id="personal" class="wholeSpending"><%= personalTotal %></p>
-                <form action="/event/personal/delete" method="POST">
-                    <button class="fa fa-eraser"></button>
-                </form>
-                
-               </div>
+    <div class="" style="margin:2rem;background-color: #121229 ;color:white; flex-wrap: wrap; gap: 20px;">
+        <div class="box" style="width: 23%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">Personal</li>
+            <% let personalTotal=0 %>
+            <% for(var i=0; i<personal.length; i++) {%>
+                <% personalTotal+=Number(personal[i].amount)%>
+            <% } %>
+            <div class="flexBox">
+                <p id="personal" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= personalTotal %></p>
             </div>
-
-              <div class="box">
-            <li>Food</li>
-                <% let foodTotal=0 %>
-                    <% for(var i=0; i<food.length; i++) {%>
-                        <% foodTotal+=Number(food[i].amount)%>
-                    
-                <% } %>
-                <div class="flexBox">
-                    <p id="food" class="wholeSpending"><%= foodTotal %></p>
-                    <form action="/event/food/delete" method="POST">
-                        <button class="fa fa-eraser"></button>
-                    </form>
-                    
-                   </div>
+            <form action="/event/personal/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
+        </div>
+    
+        <div class="box" style="width: 23%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">Food</li>
+            <% let foodTotal=0 %>
+            <% for(var i=0; i<food.length; i++) {%>
+                <% foodTotal+=Number(food[i].amount)%>
+            <% } %>
+            <div class="flexBox">
+                <p id="food" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= foodTotal %></p>
             </div>
-
-            <div class="box">
-            <li>Investments</li>
+            <form action="/event/food/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
+        </div>
+    
+        <div class="box" style="width: 23%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">Investments</li>
             <% let investmentsTotal=0 %>
-                    <% for(var i=0; i<investments.length; i++) {%>
-                        <% investmentsTotal+=Number(investments[i].amount)%>
-                    
-                    <% } %>
-                <div class="flexBox">
-                    <p id="investments" class="wholeSpending"><%= investmentsTotal %></p>
-                    <form action="/event/investments/delete" method="POST">
-                        <button class="fa fa-eraser"></button>
-                    </form>
-                    
-                   </div>
+            <% for(var i=0; i<investments.length; i++) {%>
+                <% investmentsTotal+=Number(investments[i].amount)%>
+            <% } %>
+            <div class="flexBox">
+                <p id="investments" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= investmentsTotal %></p>
             </div>
-
-            <div class="box">
-            <li>Savings</li>
-                <% let savingsTotal=0 %>
-                <% for(var i=0; i<savings.length; i++) {%>
-                    <% savingsTotal+=Number(savings[i].amount)%>
-               
-                <% } %>               
-                <div class="flexBox">
-                    <p id="savings" class="wholeSpending"><%= savingsTotal %></p>
-                    <form action="/event/savings/delete" method="POST">
-                        <button class="fa fa-eraser"></button>
-                    </form>                    
-                </div>
+            <form action="/event/investments/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
+        </div>
+    
+        <div class="box" style="width: 23%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">Savings</li>
+            <% let savingsTotal=0 %>
+            <% for(var i=0; i<savings.length; i++) {%>
+                <% savingsTotal+=Number(savings[i].amount)%>
+            <% } %>
+            <div class="flexBox">
+                <p id="savings" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= savingsTotal %></p>
             </div>
-        </ul>
-        <ul >
-            <div class="box">
-            <li>Housing</li>
-                <% let housingTotal=0 %>
-                    <% for(var i=0; i<housing.length; i++) {%>
-                        <% housingTotal+=Number(housing[i].amount)%>
-                   
-                    <% } %>
-               
-                <div class="flexBox">
-                    <p id="housing" class="wholeSpending"><%= housingTotal %></p>
-                    <form action="/event/housing/delete" method="POST">
-                        <button class="fa fa-eraser"></button>
-                    </form>                    
-                </div>
+            <form action="/event/savings/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
+        </div>
+    
+        <!-- Second Row -->
+        <div class="box" style="width: 23%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">Housing</li>
+            <% let housingTotal=0 %>
+            <% for(var i=0; i<housing.length; i++) {%>
+                <% housingTotal+=Number(housing[i].amount)%>
+            <% } %>
+            <div class="flexBox">
+                <p id="housing" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= housingTotal %></p>
             </div>
-            <div class="box">
-            <li>School</li>
+            <form action="/event/housing/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
+        </div>
+    
+        <div class="box" style="width: 23%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">School</li>
             <% let schoolTotal=0 %>
-                <% for(var i=0; i<school.length; i++) {%>
-                    <% schoolTotal+=Number(school[i].amount)%>
-               
-               <% } %>              
-               <div class="flexBox" >
-                <p id="school" class="wholeSpending"><%= schoolTotal %></p> 
-                <form action="/event/school/delete" method="POST">
-                    <button class="fa fa-eraser"></button>
-                </form>                    
+            <% for(var i=0; i<school.length; i++) {%>
+                <% schoolTotal+=Number(school[i].amount)%>
+            <% } %>
+            <div class="flexBox">
+                <p id="school" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= schoolTotal %></p>
             </div>
-            </div>
-            <div class="box">
-            <li>Utilities</li>
+            <form action="/event/school/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
+        </div>
+    
+        <div class="box" style="width: 23%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">Utilities</li>
             <% let utilitiesTotal=0 %>
-                    <% for(var i=0; i<utilities.length; i++) {%>
-                        <% utilitiesTotal+=Number(utilities[i].amount)%>
-                   
-                    <% } %>
-                <div class="flexBox">
-                    <p id="utilities" class="wholeSpending"><%= utilitiesTotal %></p>
-                    <form action="/event/utilities/delete" method="POST">
-                        <button class="fa fa-eraser"></button>
-                    </form>                    
-                </div>
+            <% for(var i=0; i<utilities.length; i++) {%>
+                <% utilitiesTotal+=Number(utilities[i].amount)%>
+            <% } %>
+            <div class="flexBox">
+                <p id="utilities" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= utilitiesTotal %></p>
             </div>
-            <div class="box">
-            <li>Transportation</li>
+            <form action="/event/utilities/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
+        </div>
+    
+        <div class="box" style="width: 23%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">Transportation</li>
             <% let transportationTotal=0 %>
             <% for(var i=0; i<transportation.length; i++) {%>
                 <% transportationTotal+=Number(transportation[i].amount)%>
-          
             <% } %>
-            
             <div class="flexBox">
-                <p id="transportation" class="wholeSpending"><%= transportationTotal %></p>
-                <form action="/event/transportation/delete" method="POST">
-                    <button class="fa fa-eraser"></button>
-                </form>                    
+                <p id="transportation" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= transportationTotal %></p>
             </div>
-    </div>
-        </ul>
-        <ul >
-            <div class="box">
-            <li>Recreation</li>
-                <% let recreationTotal=0 %>
-                <% for(var i=0; i<recreation.length; i++) {%>
-                    <% recreationTotal+=Number(recreation[i].amount)%>
-               
-                <% } %>
-           
-            <div class="flexBox">
-                <p id="recreation"><%= recreationTotal %></p>
-                <form action="/event/recreation/delete" method="POST">
-                    <button class="fa fa-eraser"></button>
-                </form>                    
-            </div>
+            <form action="/event/transportation/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
         </div>
-        <div class="box">
-            <li>Medical</li>
+    
+        <!-- Third Row (Last Row with 3 items) -->
+        <div class="box" style="width: 30%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">Recreation</li>
+            <% let recreationTotal=0 %>
+            <% for(var i=0; i<recreation.length; i++) {%>
+                <% recreationTotal+=Number(recreation[i].amount)%>
+            <% } %>
+            <div class="flexBox">
+                <p id="recreation" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= recreationTotal %></p>
+            </div>
+            <form action="/event/recreation/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
+        </div>
+    
+        <div class="box" style="width: 30%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">Medical</li>
             <% let medicalTotal=0 %>
-            <% for(var i=0; medical.length; i++) {%>
+            <% for(var i=0; i<medical.length; i++) {%>
                 <% medicalTotal+=Number(medical[i].amount)%>
-           
             <% } %>
-           
             <div class="flexBox">
-                <p id="medical"><%= medicalTotal %></p>
-                <form action="/event/medical/delete" method="POST">
-                    <button class="fa fa-eraser"></button>
-                </form>                    
+                <p id="medical" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= medicalTotal %></p>
             </div>
-    </div>
-    <div class="box">
-            <li>Miscellaneous</li>
+            <form action="/event/medical/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
+        </div>
+    
+        <div class="box" style="width: 30%; display: inline-block; position: relative; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <li style="font-size: 20px; font-weight: bold;">Miscellaneous</li>
             <% let miscellaneousTotal=0 %>
-            <% for(var i=0; miscellaneous.length; i++) {%>
+            <% for(var i=0; i<miscellaneous.length; i++) {%>
                 <% miscellaneousTotal+=Number(miscellaneous[i].amount)%>
-            
             <% } %>
-            
             <div class="flexBox">
-                <p id="miscellaneous"><%= miscellaneousTotal %></p>
-                <form action="/event/miscellaneous/delete" method="POST">
-                    <button class="fa fa-eraser"></button>
-                </form>                    
+                <p id="miscellaneous" class="wholeSpending" style="font-size: 40px; font-weight: bold; color: white;"><%= miscellaneousTotal %></p>
             </div>
+            <form action="/event/miscellaneous/delete" method="POST" style="position: absolute; bottom: 10px; right: 10px;">
+                <button class="fa fa-eraser"></button>
+            </form>
+        </div>
     </div>
-        </ul>
-    </div>
+    
+    
+    
 
 
 
@@ -304,18 +292,19 @@
     </div>
 
 
-    <div class="col-lg-2 scrollView scrollBg shawdow">
+    <div class="col-lg-2 scrollView scrollBg shawdow" style="padding: 1rem; overflow-y: auto;">
         <% for(var i=0; i<sub.length; i++) {%>
-            <div class="subScrollbox">
-            <p><%= sub[i].name%></p><span id="totalSubs"><%= sub[i].amount%></span>
-</div>
-            
+            <div class="subScrollbox" style="margin-bottom: 1rem;">
+                <p><%= sub[i].name %></p>
+                <span id="totalSubs"><%= sub[i].amount %></span>
+            </div>
         <% } %>    
     </div>
+    
 
-    <div class="col-lg-3 scrollBg shawdow ">
-        <p id="total">$</p>
-        
+    <div class="col-lg-3 scrollBg shawdow" style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; height: 100%;">
+        <h1 class="text-center text-white" style="margin-bottom: 1rem;">Subscription Total</h1>
+        <p id="total" class="text-center" style="font-size: 3rem;">$</p>
     </div>
 
 
